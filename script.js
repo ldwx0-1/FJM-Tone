@@ -32,3 +32,4 @@
   <script src="FJM-Tone/script.js"></script>
 </body>
 </html>
+document.getElementById("generateBtn").addEventListener("click", generatePassword);
