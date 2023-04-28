@@ -1,34 +1,56 @@
-﻿﻿<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="FJM-Tone/style.css">
-</head>
-<body>
-  <div class="container">
-    <h1></h1>
-    <label for="password-length">密码长度：</label>
-    <input type="number" id="password-length" min="8" max="50" value="12">
-    <div>
-      <input type="checkbox" id="include-uppercase" checked>
-      <label for="include-uppercase">包含大写字母</label>
-    </div>
-    <div>
-      <input type="checkbox" id="include-lowercase" checked>
-      <label for="include-lowercase">包含小写字母</label>
-    </div>
-    <div>
-      <input type="checkbox" id="include-special" checked>
-      <label for="include-special">包含特殊字符</label>
-    </div>
-    <label for="exclude-chars">排除字符：</label>
-    <input type="text" id="exclude-chars">
-    <button id="generate" class="btn" onclick="generatePassword()">生成</button>
-    <input type="text" id="password-result" readonly>
-  </div>
-  <script src="FJM-Tone/script.js"></script>
-</body>
-</html>
+body {
+  background-image: url('your-image-url');
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056B3;
+}
+
+input[type="text"]:read-only {
+  background-color: #f8f9fa;
+}
+
