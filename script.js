@@ -5,37 +5,41 @@ function generatePassword() {
   const includeSpecial = document.getElementById("include-special").checked;
   const excludeChars = document.getElementById("exclude-chars").value;
 
-  const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const lowerChars = "abcdefghijklmnopqrstuvwxyz";
-  const specialChars = "!@#$%^&*()_+{}|:<>?[];',./";
-  const numberChars = "0123456789";
+  const password = createPassword(length, includeUppercase, includeLowercase, includeSpecial, excludeChars);
+  document.getElementById("password-result").value = password;
+}
 
-  let availableChars = numberChars;
+function createPassword(length, includeUppercase, includeLowercase, includeSpecial, excludeChars) {
+  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  const specialChars = "!@#$%^&*()_-+=<>?/{}[];:'`~|";
+  const numberChars = "0123456789";
+  let availableChars = "";
 
   if (includeUppercase) {
-    availableChars += upperChars;
+    availableChars += uppercaseChars;
   }
   if (includeLowercase) {
-    availableChars += lowerChars;
+    availableChars += lowercaseChars;
   }
   if (includeSpecial) {
-   
     availableChars += specialChars;
   }
+  availableChars += numberChars;
 
-  // Remove excluded characters
-  for (const char of excludeChars) {
-    availableChars = availableChars.replace(char, '');
+  let finalChars = "";
+  for (let i = 0; i < availableChars.length; i++) {
+    if (!excludeChars.includes(availableChars[i])) {
+      finalChars += availableChars[i];
+    }
   }
 
-  let password = '';
-
+  let password = "";
   for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * availableChars.length);
-    password += availableChars[randomIndex];
+    password += finalChars[Math.floor(Math.random() * finalChars.length)];
   }
 
-  document.getElementById("password-result").value = password;
+  return password;
 }
 
 document.getElementById("generate").addEventListener("click", generatePassword);
