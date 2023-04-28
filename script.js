@@ -19,15 +19,16 @@ function generatePassword() {
     availableChars += lowerChars;
   }
   if (includeSpecial) {
+   
     availableChars += specialChars;
   }
 
-  availableChars = availableChars
-    .split("")
-    .filter((char) => !excludeChars.includes(char))
-    .join("");
+  // Remove excluded characters
+  for (const char of excludeChars) {
+    availableChars = availableChars.replace(char, '');
+  }
 
-  let password = "";
+  let password = '';
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * availableChars.length);
@@ -37,5 +38,6 @@ function generatePassword() {
   document.getElementById("password-result").value = password;
 }
 
-document.getElementById("generateBtn").addEventListener("click", generatePassword);
+document.getElementById("generate").addEventListener("click", generatePassword);
+
 
