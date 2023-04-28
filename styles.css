@@ -21,13 +21,3 @@ body {
   text-align: center;
 }
 
-input,
-button {
-  margin-top: 10px;
-}
-
-#password-result {
-  margin-top: 10px;
-  width: 100%;
-}
-
