@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="FJM-Tone/style.css">
 </head>
 <body>
   <div class="container">
@@ -29,6 +29,6 @@
     <button id="generate" class="btn" onclick="generatePassword()">生成</button>
     <input type="text" id="password-result" readonly>
   </div>
-  <script src="script.js"></script>
+  <script src="FJM-Tone/script.js"></script>
 </body>
 </html>
